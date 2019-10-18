@@ -4,8 +4,6 @@ import org.improving.starTrekGame.commands.AttackCommand;
 import org.improving.starTrekGame.commands.MoveCommand;
 import org.w3c.dom.ls.LSOutput;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -24,11 +22,6 @@ public class Game {
     }
 
     private void startMenu(Scanner scanner) {
-
-        boolean yourTurn = true;
-        boolean enemyTurn = false;
-
-
         while(true) {
             System.out.print(">> ");
             String userChoice = scanner.nextLine();
@@ -39,10 +32,7 @@ public class Game {
                 sector.placeShips();
                 sector.setEnterpriseLocation();
                 sector.displaySector(); // need to move to game class
-                System.out.println(); // subject to take out
-                Turn turn = new Turn( null, sector);
-                turn.homeAttacks("attack 2");
-
+                System.out.println();
                 useCommands(scanner);
 
                 break;
@@ -70,15 +60,22 @@ public class Game {
         while (loop) {
             System.out.print(">> ");
             String userChoice = scanner.nextLine();
-            if (userChoice.equalsIgnoreCase("attack")) {
-                AttackCommand attackCommand = new AttackCommand(null, 20); //TODO Change later.
+            String[] parsed = userChoice.split(" ");
+            String command = parsed[0];
+            if (command.equalsIgnoreCase("attack")) {
+                int target = Integer.parseInt(parsed[1]);
+                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target), 50); //TODO Change later.
                 attackCommand.execute();
-            } else if (userChoice.equalsIgnoreCase("move")) {
+                for (int i = 0; i < sector.getEnemyShips().size(); i++) {
+                    attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25);
+                    attackCommand.execute();
+                }
+            } else if (command.equalsIgnoreCase("move")) {
                 MoveCommand moveCommand = new MoveCommand();
                 moveCommand.execute();
-            } else if (userChoice.equalsIgnoreCase("exit")) {
+            } else if (command.equalsIgnoreCase("exit")) {
                 return;
-            } else if (userChoice.equalsIgnoreCase("help")) {
+            } else if (command.equalsIgnoreCase("help")) {
                 showGameHelpCommands();
             }
         }

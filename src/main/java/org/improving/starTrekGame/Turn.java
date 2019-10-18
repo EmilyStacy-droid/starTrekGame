@@ -7,10 +7,11 @@ public class Turn {
     private EnterpriseShip homeShip;
     private Sector sector;
 
-    public Turn(EnterpriseShip homeShip, Sector sector) {
+    public Turn(Sector sector) {
         this.enemyShips = sector.getEnemyShips();
-        this.homeShip = homeShip;
+        this.homeShip = sector.getEnterpriseShip();
         this.sector = sector;
+
     }
 
     public void homeAttacks(String input) {

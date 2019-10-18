@@ -9,12 +9,6 @@ public class Sector {
     private String[][] grid = new String[10][10];
     List<EnemyShip> enemyShips = new ArrayList<>();
     Random random = new Random();
-    int shipNum;
-
-
-    public String[][] getGrid() {
-        return grid;
-    }
 
     public void fillArray() {
         for (int i = 0; i < grid.length; i++) {
@@ -62,7 +56,14 @@ public class Sector {
         return enemyShips;
     }
 
+
     public boolean allEnemiesDestroyed() {
         return enemyShips.isEmpty();
     }
+
+    public EnterpriseShip getEnterpriseShip() {
+        return enterpriseShip;
+
+    }
 }
+
