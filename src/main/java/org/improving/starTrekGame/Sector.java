@@ -3,7 +3,7 @@ package org.improving.starTrekGame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-//hi
+
 public class Sector {
     private EnterpriseShip enterpriseShip = new EnterpriseShip();
     private String[][] grid = new String[10][10];
