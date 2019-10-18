@@ -5,7 +5,7 @@ public class EnemyShip extends Ship {
     private int id;
 
     public EnemyShip(int Id) {
-        super(100);
+        super(100, 3);
        this.id = Id;
     }
 

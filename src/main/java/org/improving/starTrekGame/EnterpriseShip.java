@@ -2,7 +2,7 @@ package org.improving.starTrekGame;
 
 public class EnterpriseShip extends Ship {
     public EnterpriseShip() {
-        super(2000);
+        super(2000, 5);
     }
 
    @Override

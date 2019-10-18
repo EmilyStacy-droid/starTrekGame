@@ -58,12 +58,14 @@ public class Game {
                         target = i;
                     }
                 }
-                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target), 50, sector); //TODO Change later.
+                AttackCommand attackCommand = new AttackCommand(sector.getEnterpriseShip(), sector.getEnemyShips().get(target), 50, sector); //TODO Change later.
                 attackCommand.execute();
                 for (int i = 0; i < sector.getEnemyShips().size(); i++) {
-                    attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25, sector);
-                    if (attackCommand.execute())
-                        break;
+                    if (sector.getEnemyShips().get(i).isInRange(sector.getEnterpriseShip())) {
+                        attackCommand = new AttackCommand(sector.getEnemyShips().get(i), sector.getEnterpriseShip(), 25, sector);
+                        if (attackCommand.execute())
+                            break;
+                    }
                 }
                 sector.moveEnemyShip();
             } else if (command.equalsIgnoreCase("move")) {
