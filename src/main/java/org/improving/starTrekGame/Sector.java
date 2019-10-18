@@ -3,7 +3,7 @@ package org.improving.starTrekGame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-//hi
+
 public class Sector {
     private EnterpriseShip enterpriseShip = new EnterpriseShip();
     private String[][] grid = new String[10][10];
@@ -21,6 +21,7 @@ public class Sector {
     public void displaySector() {
         for (int i = 0; i < grid.length; i++) {
             System.out.print("\n");
+
             for (int j = 0; j < grid[i].length; j++) {
                 System.out.print(grid[i][j] + "\t");
             }
@@ -55,7 +56,14 @@ public class Sector {
         return enemyShips;
     }
 
+
+    public boolean allEnemiesDestroyed() {
+        return enemyShips.isEmpty();
+    }
+
     public EnterpriseShip getEnterpriseShip() {
         return enterpriseShip;
+
     }
 }
+

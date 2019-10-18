@@ -2,6 +2,7 @@ package org.improving.starTrekGame;
 
 import org.improving.starTrekGame.commands.AttackCommand;
 import org.improving.starTrekGame.commands.MoveCommand;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.Scanner;
 
@@ -40,8 +41,20 @@ public class Game {
             } else if (userChoice.equalsIgnoreCase("exit")) {
                 break;
             }
+            if (sector.allEnemiesDestroyed()){
+                System.out.println(
+                        "                              __ \n" +
+                        " __ __                  _    |  |\n" +
+                        "|  |  |___ _ _    _ _ _|_|___|  |\n" +
+                        "|_   _| . | | |  | | | | |   |__|\n" +
+                        "  |_| |___|___|  |_____|_|_|_|__|\n" +
+                        "                                 ");
+                break;
+            }
         }
     }
+
+
 
     private void useCommands(Scanner scanner) {
         boolean loop = true;
@@ -60,7 +73,7 @@ public class Game {
                 }
             } else if (command.equalsIgnoreCase("move")) {
                 MoveCommand moveCommand = new MoveCommand();
-                moveCommand.execute();
+                moveCommand.execute(parsed[1]);
             } else if (command.equalsIgnoreCase("exit")) {
                 return;
             } else if (command.equalsIgnoreCase("help")) {
@@ -97,6 +110,8 @@ public class Game {
         System.out.println("   \\|_________|      ");
 
     }
+
+
 
 
 }
