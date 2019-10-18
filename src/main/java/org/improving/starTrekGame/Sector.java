@@ -4,13 +4,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Sector {
     private EnterpriseShip enterpriseShip = new EnterpriseShip();
     private String[][] grid = new String[10][10];
     List<EnemyShip> enemyShips = new ArrayList<>();
-    Random random = new Random();
 
     public void fillArray() {
         for (int i = 0; i < grid.length; i++) {
@@ -34,7 +32,7 @@ public class Sector {
     public void placeShips() {
         int shipIndex = 0;
         for (int i = 0; i < 5; i++) {
-            enemyShips.add(new EnemyShip());
+            enemyShips.add(new EnemyShip(i + 1));
         }
 
         for(EnemyShip e: enemyShips) {
@@ -44,10 +42,7 @@ public class Sector {
     }
 
     public void setEnterpriseLocation() {
-        int randomY = random.nextInt(10);
-        int randomX = random.nextInt(10);
-        grid[randomY][randomX] = "E";
-        enterpriseShip.setLocation(randomX, randomY);
+        grid[enterpriseShip.getxCord()][enterpriseShip.getyCord()] = "E";
     }
 
     public void removeDeadShip(int x, int y) {

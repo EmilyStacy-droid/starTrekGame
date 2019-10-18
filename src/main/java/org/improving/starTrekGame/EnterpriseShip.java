@@ -1,9 +1,9 @@
 package org.improving.starTrekGame;
 
-import org.springframework.stereotype.Component;
-
-
 public class EnterpriseShip extends Ship {
+    public EnterpriseShip() {
+        super(2000);
+    }
 
    @Override
     public boolean destroyed(){

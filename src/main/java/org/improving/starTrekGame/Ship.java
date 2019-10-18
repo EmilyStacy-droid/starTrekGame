@@ -1,12 +1,19 @@
 package org.improving.starTrekGame;
 
-import org.springframework.stereotype.Component;
-
+import java.util.Random;
 
 public abstract class Ship {
+    Random random = new Random();
+
     private int x;
     private int y;
     private int health;
+    private String name;
+
+    public Ship(int health) {
+        this.health = health;
+        setLocation(random.nextInt(10), random.nextInt(10));
+    }
 
 
     public void takeDamage(int damage){

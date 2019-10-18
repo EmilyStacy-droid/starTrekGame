@@ -2,8 +2,6 @@ package org.improving.starTrekGame.commands;
 
 import org.improving.starTrekGame.Sector;
 import org.improving.starTrekGame.Ship;
-import org.springframework.stereotype.Component;
-
 
 public class AttackCommand {
     private final Sector sector;
@@ -19,13 +17,12 @@ public class AttackCommand {
     public boolean execute() {
         target.takeDamage(damageAmount);
         if (target.getHealth() <= 0) {
+            System.out.println(target.getxCord());
+            System.out.println(target.getyCord());
+            sector.removeDeadShip(target.getxCord(), target.getyCord());
             return target.destroyed();
         }
-        sector.removeDeadShip(target.getxCord(), target.getyCord());
         return false;
     }
 
-//    public boolean isValid() {
-//
-//    }
 }
