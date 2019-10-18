@@ -62,6 +62,7 @@ public class Game {
                     attackCommand.execute();
                     for (int i = 0; i < sector.getEnemyShips().size(); i++) {
                         if (sector.getEnemyShips().get(i).isInRange(sector.getEnterpriseShip())) {
+                            System.out.println("Enemy ship " + sector.getEnemyShips().get(i).getMarker() + " is attacking the Enterprise!");
                             attackCommand = new AttackCommand(sector.getEnemyShips().get(i), sector.getEnterpriseShip(), 25, sector);
                             if (attackCommand.execute())
                                 break;
