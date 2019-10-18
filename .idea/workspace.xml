@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2999a60-5540-4f15-89a3-d1bf42d45bc0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/commands/AttackCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/commands/MoveCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/Earth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/Earth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/commands/AttackCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/improving/starTrekGame/commands/AttackCommand.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +27,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -78,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571411146781</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ignore .idea/">
+      <created>1571412399361</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571412399361</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
