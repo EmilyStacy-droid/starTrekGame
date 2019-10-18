@@ -23,6 +23,7 @@ public class Game {
         String userChoice = scanner.nextLine();
         if (userChoice.equalsIgnoreCase("start")) {
             System.out.println("Would start sector");
+            // call sector or some
         }
         if (userChoice.equalsIgnoreCase("help")) {
             showHelpCommands();
