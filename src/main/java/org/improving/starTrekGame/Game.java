@@ -23,7 +23,7 @@ public class Game {
     }
 
     private void startMenu(Scanner scanner) {
-        List<EnemyShip> middleSectorList = new ArrayList<>();
+
         boolean yourTurn = true;
         boolean enemyTurn = false;
 
@@ -34,7 +34,7 @@ public class Game {
                 System.out.println("Beginning Game!");
                 sector.fillArray();
 
-                sector.placeShips(middleSectorList);
+                sector.placeShips();
                 sector.setEnterpriseLocation();
                 sector.displaySector(); // need to move to game class
                 System.out.println(); // subject to take out
@@ -54,7 +54,7 @@ public class Game {
             System.out.print(">> ");
             String userChoice = scanner.nextLine();
             if (userChoice.equalsIgnoreCase("attack")) {
-                AttackCommand attackCommand = new AttackCommand();
+                AttackCommand attackCommand = new AttackCommand(null, 20); //TODO Change later.
                 attackCommand.execute();
             } else if (userChoice.equalsIgnoreCase("move")) {
                 MoveCommand moveCommand = new MoveCommand();

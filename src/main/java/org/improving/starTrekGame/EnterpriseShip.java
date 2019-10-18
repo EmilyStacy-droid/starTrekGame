@@ -1,10 +1,8 @@
 package org.improving.starTrekGame;
 
-public class EnterpriseShip {
+public class EnterpriseShip extends Ship {
     private int x;
     private int y;
-    long damagetaken;
-
     private Sector sector;
 
     public void setLocation(int x, int y) {
@@ -12,6 +10,7 @@ public class EnterpriseShip {
         this.y = y;
 
     }
+
 
 
 }
