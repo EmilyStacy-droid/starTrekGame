@@ -1,5 +1,6 @@
 package org.improving.starTrekGame;
 
+import java.util.List;
 import java.util.Random;
 //hi
 public class Sector {
@@ -27,14 +28,17 @@ public class Sector {
         System.out.println();
     }
 
-    public void placeShips() {
-        int amountOfShips = random.nextInt(5) + 1; //Inserts up to 5 ships in the sector, the +1 asserts at least 1 ship will be placed in the sector.
-        for (int i = 0; i < amountOfShips; i++) {
-            int randomY = random.nextInt(10);
-            int randomX = random.nextInt(10);
-            grid[randomY][randomX] = ""+ (i+1);
-            System.out.println("x, y cord is" + randomX + "," + randomY);
+    public List<EnemyShip> placeShips(List<EnemyShip> shipList) {
+        int shipIndex = 0;
+        for (int i = 0; i < 5; i++) {
+            shipList.add(new EnemyShip());
         }
+
+        for(EnemyShip e: shipList) {
+            shipIndex ++;
+            grid[e.getyCord()][e.getxCord()] = "" + shipIndex;
+        }
+        return shipList;
 
     }
 
