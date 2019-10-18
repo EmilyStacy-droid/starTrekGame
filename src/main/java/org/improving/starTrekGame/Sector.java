@@ -74,5 +74,25 @@ public class Sector {
         ship.setLocation(newX, newY);
         grid[newX][newY] = ship.getMarker();
     }
+
+    public void moveEnemyShip(){
+        for(var member: enemyShips){
+            int oldX = member.getxCord();
+            int oldY = member.getyCord();
+            grid[oldX][oldY] = ".";
+            if(enterpriseShip.getxCord() > member.getxCord()){
+                grid[oldX+1][oldY] = member.getMarker();
+            }
+            else if(enterpriseShip.getxCord() < member.getxCord()){
+                grid[oldX-1][oldY] = member.getMarker();
+            }
+            else if (enterpriseShip.getyCord() > member.getyCord()) {
+                grid[oldX][oldY + 1] = member.getMarker();
+            }
+            else if(enterpriseShip.getyCord() < member.getyCord()){
+                grid[oldX][oldY - 1] = member.getMarker();
+            }
+        }
+    }
 }
 

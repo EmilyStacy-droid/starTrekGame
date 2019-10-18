@@ -65,6 +65,7 @@ public class Game {
                     if (attackCommand.execute())
                         break;
                 }
+                sector.moveEnemyShip();
             } else if (command.equalsIgnoreCase("move")) {
                 MoveCommand moveCommand = new MoveCommand(sector, sector.getEnterpriseShip());
                 moveCommand.execute(parsed[1], Integer.parseInt(parsed[2]));
