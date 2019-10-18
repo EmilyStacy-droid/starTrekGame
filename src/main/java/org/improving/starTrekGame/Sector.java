@@ -61,4 +61,8 @@ public class Sector {
     public List<EnemyShip> getEnemyShips() {
         return enemyShips;
     }
+
+    public boolean allEnemiesDestroyed() {
+        return enemyShips.isEmpty();
+    }
 }

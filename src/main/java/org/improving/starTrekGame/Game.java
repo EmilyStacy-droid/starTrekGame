@@ -2,6 +2,7 @@ package org.improving.starTrekGame;
 
 import org.improving.starTrekGame.commands.AttackCommand;
 import org.improving.starTrekGame.commands.MoveCommand;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +51,19 @@ public class Game {
             } else if (userChoice.equalsIgnoreCase("exit")) {
                 break;
             }
+            if (sector.allEnemiesDestroyed()){
+                System.out.println("                              __ \n" +
+                        " __ __                  _    |  |\n" +
+                        "|  |  |___ _ _    _ _ _|_|___|  |\n" +
+                        "|_   _| . | | |  | | | | |   |__|\n" +
+                        "  |_| |___|___|  |_____|_|_|_|__|\n" +
+                        "                                 ");
+                break;
+            }
         }
     }
+
+
 
     private void useCommands(Scanner scanner) {
         boolean loop = true;
@@ -99,6 +111,8 @@ public class Game {
         System.out.println("   \\|_________|      ");
 
     }
+
+
 
 
 }
