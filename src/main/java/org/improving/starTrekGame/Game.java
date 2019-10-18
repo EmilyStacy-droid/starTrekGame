@@ -3,6 +3,8 @@ package org.improving.starTrekGame;
 import org.improving.starTrekGame.commands.AttackCommand;
 import org.improving.starTrekGame.commands.MoveCommand;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -17,17 +19,22 @@ public class Game {
         starTrekFont();
         System.out.println( "                               | START | HELP | EXIT |");
         Scanner scanner = new Scanner(System.in);
-        promptUser(scanner);
+        startMenu(scanner);
     }
 
-    private void promptUser(Scanner scanner) {
+    private void startMenu(Scanner scanner) {
+        List<EnemyShip> middleSectorList = new ArrayList<>();
+        boolean yourTurn = true;
+        boolean enemyTurn = false;
+
         while(true) {
             System.out.print(">> ");
             String userChoice = scanner.nextLine();
             if (userChoice.equalsIgnoreCase("start")) {
                 System.out.println("Beginning Game!");
                 sector.fillArray();
-                sector.placeShips();
+
+                sector.placeShips(middleSectorList);
                 sector.setEnterpriseLocation();
                 sector.displaySector(); // need to move to game class
                 System.out.println(); // subject to take out
