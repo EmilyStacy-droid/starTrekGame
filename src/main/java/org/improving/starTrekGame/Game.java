@@ -61,6 +61,7 @@ public class Game {
             if (userChoice.equalsIgnoreCase("attack")) {
                 AttackCommand attackCommand = new AttackCommand(null, 20); //TODO Change later.
                 attackCommand.execute();
+
             } else if (userChoice.equalsIgnoreCase("move")) {
                 MoveCommand moveCommand = new MoveCommand();
                 moveCommand.execute();
