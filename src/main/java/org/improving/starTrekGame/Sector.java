@@ -32,7 +32,7 @@ public class Sector {
             int randomY = random.nextInt(10);
             int randomX = random.nextInt(10);
             sector[randomY][randomX] = ""+ (i+1);
-            System.out.println("xy cord is" + randomX + "," + randomY);
+            System.out.println("x, y cord is" + randomX + "," + randomY);
         }
 
     }
