@@ -31,7 +31,6 @@ public class Game {
                 sector.fillArray();
 
                 sector.placeShips();
-                sector.setEnterpriseLocation();
                 sector.displaySector(); // need to move to game class
                 System.out.println();
                 useCommands(scanner);

@@ -1,7 +1,5 @@
 package org.improving.starTrekGame;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +7,10 @@ public class Sector {
     private EnterpriseShip enterpriseShip = new EnterpriseShip();
     private String[][] grid = new String[10][10];
     List<EnemyShip> enemyShips = new ArrayList<>();
+
+    public Sector() {
+        setEnterpriseLocation();
+    }
 
     public void fillArray() {
         for (int i = 0; i < grid.length; i++) {
@@ -41,7 +43,7 @@ public class Sector {
         }
     }
 
-    public void setEnterpriseLocation() {
+    private void setEnterpriseLocation() {
         grid[enterpriseShip.getxCord()][enterpriseShip.getyCord()] = "E";
     }
 
@@ -60,7 +62,14 @@ public class Sector {
 
     public EnterpriseShip getEnterpriseShip() {
         return enterpriseShip;
+    }
 
+    public void move(Ship ship, int newX, int newY) {
+        int oldX = ship.getxCord();
+        int oldY = ship.getyCord();
+        grid[oldX][oldY] = ".";
+        ship.setLocation(newX, newY);
+        grid[newX][newY] = ship.getMarker();
     }
 }
 

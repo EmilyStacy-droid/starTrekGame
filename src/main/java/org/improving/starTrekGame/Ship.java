@@ -38,4 +38,6 @@ public abstract class Ship {
     }
 
     public abstract boolean destroyed();
+
+    public abstract String getMarker();
 }

@@ -10,4 +10,9 @@ public class EnterpriseShip extends Ship {
        System.out.println("You unfortunately have lost the game!");
        return true;
    }
+
+    @Override
+    public String getMarker() {
+        return "E";
+    }
 }
