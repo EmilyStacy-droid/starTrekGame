@@ -27,6 +27,7 @@ public class MoveCommand {
             System.out.println("Invalid input. Must move \"up\", \"down\", \"left\", or \"right\".");
             return ;
         }
-        sector.move(ship, ship.getxCord() + xAmount, ship.getyCord() + yAmount);
+
+        sector.move(ship, ship.getxCord() + yAmount, ship.getyCord() + xAmount);
     }
 }
