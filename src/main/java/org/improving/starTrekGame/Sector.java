@@ -11,6 +11,11 @@ public class Sector {
     Random random = new Random();
     int shipNum;
 
+
+    public String[][] getGrid() {
+        return grid;
+    }
+
     public void fillArray() {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length ; j++) {
@@ -48,4 +53,11 @@ public class Sector {
         enterpriseShip.setLocation(randomX, randomY);
     }
 
+    public void removeDeadShip(int x, int y) {
+        grid[x][y] = ".";
+    }
+
+    public List<EnemyShip> getEnemyShips() {
+        return enemyShips;
+    }
 }

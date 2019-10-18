@@ -27,6 +27,7 @@ public class Game {
         boolean yourTurn = true;
         boolean enemyTurn = false;
 
+
         while(true) {
             System.out.print(">> ");
             String userChoice = scanner.nextLine();
@@ -38,7 +39,11 @@ public class Game {
                 sector.setEnterpriseLocation();
                 sector.displaySector(); // need to move to game class
                 System.out.println(); // subject to take out
+                Turn turn = new Turn( null, sector);
+                turn.homeAttacks("attack 2");
+
                 useCommands(scanner);
+
                 break;
             } else if (userChoice.equalsIgnoreCase("help")) {
                 showTopLevelHelpCommands();
