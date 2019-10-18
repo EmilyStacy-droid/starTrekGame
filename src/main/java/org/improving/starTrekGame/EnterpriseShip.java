@@ -11,6 +11,11 @@ public class EnterpriseShip extends Ship {
 
     }
 
+    public int getEnterpriseX () {
+        return x;
+    }
 
-
+    public int getEnterpriseY() {
+        return y;
+    }
 }

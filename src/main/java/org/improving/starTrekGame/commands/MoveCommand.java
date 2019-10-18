@@ -5,7 +5,9 @@ public class MoveCommand {
     public MoveCommand() {
     }
 
-    public void execute() {
+    public void execute(String s) {
+
+
         System.out.println("moving");
     }
 }
