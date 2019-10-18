@@ -1,9 +1,7 @@
 package org.improving.starTrekGame;
 
-import java.util.Random;
 
 public class EnemyShip extends Ship {
-
     private int id;
 
     public EnemyShip(int Id) {
@@ -18,11 +16,14 @@ public class EnemyShip extends Ship {
         return false;
     }
 
+    @Override
+    public String getMarker() {
+        return "" + id;
+    }
+
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 }

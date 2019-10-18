@@ -2,6 +2,7 @@ package org.improving.starTrekGame;
 
 import org.improving.starTrekGame.commands.AttackCommand;
 import org.improving.starTrekGame.commands.MoveCommand;
+import org.springframework.stereotype.Component;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.Scanner;
@@ -27,10 +28,6 @@ public class Game {
             String userChoice = scanner.nextLine();
             if (userChoice.equalsIgnoreCase("start")) {
                 System.out.println("Beginning Game!");
-                sector.fillArray();
-
-                sector.placeShips();
-                sector.setEnterpriseLocation();
                 sector.displaySector(); // need to move to game class
                 System.out.println();
                 useCommands(scanner);
@@ -51,7 +48,7 @@ public class Game {
         boolean loop = true;
         while (loop) {
             System.out.print(">> ");
-            String userChoice = scanner.nextLine();
+            String userChoice = scanner.nextLine().trim();
             String[] parsed = userChoice.split(" ");
             String command = parsed[0];
             if (command.equalsIgnoreCase("attack")) {
@@ -69,8 +66,8 @@ public class Game {
                         break;
                 }
             } else if (command.equalsIgnoreCase("move")) {
-                MoveCommand moveCommand = new MoveCommand();
-                moveCommand.execute(parsed[1]);
+                MoveCommand moveCommand = new MoveCommand(sector, sector.getEnterpriseShip());
+                moveCommand.execute(parsed[1], Integer.parseInt(parsed[2]));
             } else if (command.equalsIgnoreCase("exit")) {
                 return;
             } else if (command.equalsIgnoreCase("help")) {

@@ -8,7 +8,13 @@ public class Sector {
     private String[][] grid = new String[10][10];
     List<EnemyShip> enemyShips = new ArrayList<>();
 
-    public void fillArray() {
+    public Sector() {
+        fillArray();
+        setEnterpriseLocation();
+        placeShips();
+    }
+
+    private void fillArray() {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length ; j++) {
                 grid[i][j] = ".";
@@ -27,7 +33,7 @@ public class Sector {
         System.out.println();
     }
 
-    public void placeShips() {
+    private void placeShips() {
         int shipIndex = 0;
         for (int i = 0; i < 5; i++) {
             enemyShips.add(new EnemyShip(i + 1));
@@ -39,7 +45,7 @@ public class Sector {
         }
     }
 
-    public void setEnterpriseLocation() {
+    private void setEnterpriseLocation() {
         grid[enterpriseShip.getxCord()][enterpriseShip.getyCord()] = "E";
     }
 
@@ -59,7 +65,14 @@ public class Sector {
 
     public EnterpriseShip getEnterpriseShip() {
         return enterpriseShip;
+    }
 
+    public void move(Ship ship, int newX, int newY) {
+        int oldX = ship.getxCord();
+        int oldY = ship.getyCord();
+        grid[oldX][oldY] = ".";
+        ship.setLocation(newX, newY);
+        grid[newX][newY] = ship.getMarker();
     }
 }
 

@@ -15,6 +15,7 @@ public abstract class Ship {
         setLocation(random.nextInt(10), random.nextInt(10));
     }
 
+
     public void takeDamage(int damage){
         health -= damage;
     }
@@ -37,4 +38,6 @@ public abstract class Ship {
     }
 
     public abstract boolean destroyed();
+
+    public abstract String getMarker();
 }
