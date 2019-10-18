@@ -1,21 +1,22 @@
 package org.improving.starTrekGame;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 //hi
 public class Sector {
     private EnterpriseShip enterpriseShip = new EnterpriseShip();
     private String[][] grid = new String[10][10];
+    List<EnemyShip> enemyShips = new ArrayList<>();
     Random random = new Random();
     int shipNum;
 
-    public String[][] fillArray() {
+    public void fillArray() {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length ; j++) {
                 grid[i][j] = ".";
             }
         }
-        return grid;
     }
 
     public void displaySector() {
@@ -28,18 +29,16 @@ public class Sector {
         System.out.println();
     }
 
-    public List<EnemyShip> placeShips(List<EnemyShip> shipList) {
+    public void placeShips() {
         int shipIndex = 0;
         for (int i = 0; i < 5; i++) {
-            shipList.add(new EnemyShip());
+            enemyShips.add(new EnemyShip());
         }
 
-        for(EnemyShip e: shipList) {
+        for(EnemyShip e: enemyShips) {
             shipIndex ++;
             grid[e.getyCord()][e.getxCord()] = "" + shipIndex;
         }
-        return shipList;
-
     }
 
     public void setEnterpriseLocation() {
