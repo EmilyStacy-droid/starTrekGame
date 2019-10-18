@@ -4,27 +4,14 @@ import java.util.Random;
 
 public class EnemyShip extends Ship {
     Random random = new Random();
-    private String name;
-    int xCoord;
-    int yCoord;
 
     public EnemyShip() {
-        this.xCoord = random.nextInt(10);
-        this.yCoord = random.nextInt(10);
+        setLocation(random.nextInt(10), random.nextInt(10));
     }
 
-
-
-    public int getxCord() {
-        return xCoord;
+    @Override
+    public boolean destroyed() {
+        System.out.println("You have destroyed this ship!");
+        return false;
     }
-
-    public int getyCord() {
-        return yCoord;
-    }
-
-    public void setyCord(int yCord) {
-        this.yCoord = yCord;
-    }
-
 }

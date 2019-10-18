@@ -41,16 +41,7 @@ public class Game {
             } else if (userChoice.equalsIgnoreCase("exit")) {
                 break;
             }
-            if (sector.allEnemiesDestroyed()){
-                System.out.println(
-                        "                              __ \n" +
-                        " __ __                  _    |  |\n" +
-                        "|  |  |___ _ _    _ _ _|_|___|  |\n" +
-                        "|_   _| . | | |  | | | | |   |__|\n" +
-                        "  |_| |___|___|  |_____|_|_|_|__|\n" +
-                        "                                 ");
-                break;
-            }
+
         }
     }
 
@@ -65,11 +56,12 @@ public class Game {
             String command = parsed[0];
             if (command.equalsIgnoreCase("attack")) {
                 int target = Integer.parseInt(parsed[1]);
-                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target), 50); //TODO Change later.
+                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target), 50, sector); //TODO Change later.
                 attackCommand.execute();
                 for (int i = 0; i < sector.getEnemyShips().size(); i++) {
-                    attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25);
-                    attackCommand.execute();
+                    attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25, sector);
+                    if (attackCommand.execute())
+                        break;
                 }
             } else if (command.equalsIgnoreCase("move")) {
                 MoveCommand moveCommand = new MoveCommand();
@@ -79,7 +71,17 @@ public class Game {
             } else if (command.equalsIgnoreCase("help")) {
                 showGameHelpCommands();
             }
-        }
+            sector.displaySector();
+            if (sector.allEnemiesDestroyed()){
+                System.out.println(
+                        "                              __ \n" +
+                                " __ __                  _    |  |\n" +
+                                "|  |  |___ _ _    _ _ _|_|___|  |\n" +
+                                "|_   _| . | | |  | | | | |   |__|\n" +
+                                "  |_| |___|___|  |_____|_|_|_|__|\n" +
+                                "                                 ");
+                break;
+            }}
     }
 
     private void showGameHelpCommands() {

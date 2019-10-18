@@ -26,7 +26,6 @@ public class Turn {
         }
         if (enemyShips.get(ship).getHealth() <= 0) {
             System.out.println("DEAD");
-
         }
     }
 

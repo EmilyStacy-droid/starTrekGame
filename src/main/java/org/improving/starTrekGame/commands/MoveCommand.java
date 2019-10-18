@@ -13,7 +13,7 @@ private Sector sector;
     public void execute(String input) {
         if (input.equalsIgnoreCase("Left")){
           sector.getEnterpriseShip().setLocation(sector.getEnterpriseShip().getEnterpriseX()-1, sector.getEnterpriseShip().getEnterpriseY());
-            
+
         }
         else if (input.equalsIgnoreCase("right")){
             //move right
