@@ -1,5 +1,7 @@
 package org.improving.starTrekGame;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Random;
 
 public class EnemyShip extends Ship {

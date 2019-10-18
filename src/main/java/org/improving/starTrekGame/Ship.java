@@ -1,9 +1,13 @@
 package org.improving.starTrekGame;
 
+import org.springframework.stereotype.Component;
+
+
 public abstract class Ship {
     private int x;
     private int y;
     private int health;
+
 
     public void takeDamage(int damage){
         health -= damage;

@@ -2,6 +2,8 @@ package org.improving.starTrekGame.commands;
 
 import org.improving.starTrekGame.Sector;
 import org.improving.starTrekGame.Ship;
+import org.springframework.stereotype.Component;
+
 
 public class AttackCommand {
     private final Sector sector;
