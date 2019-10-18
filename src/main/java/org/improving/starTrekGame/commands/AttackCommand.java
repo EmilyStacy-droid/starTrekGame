@@ -19,7 +19,7 @@ public class AttackCommand {
         if (target.getHealth() <= 0) {
             System.out.println(target.getxCord());
             System.out.println(target.getyCord());
-            sector.removeDeadShip(target.getxCord(), target.getyCord());
+            sector.removeDeadShip(target);
             return target.destroyed();
         }
         return false;

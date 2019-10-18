@@ -35,7 +35,7 @@ public class Sector {
 
         for(EnemyShip e: enemyShips) {
             shipIndex ++;
-            grid[e.getyCord()][e.getxCord()] = "" + shipIndex;
+            grid[e.getxCord()][e.getyCord()] = "" + shipIndex;
         }
     }
 
@@ -43,8 +43,9 @@ public class Sector {
         grid[enterpriseShip.getxCord()][enterpriseShip.getyCord()] = "E";
     }
 
-    public void removeDeadShip(int x, int y) {
-        grid[x][y] = ".";
+    public void removeDeadShip(Ship ship) {
+        this.grid[ship.getxCord()][ship.getyCord()] = ".";
+        this.enemyShips.remove(ship);
     }
 
     public List<EnemyShip> getEnemyShips() {

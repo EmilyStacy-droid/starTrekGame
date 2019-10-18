@@ -14,6 +14,7 @@ public class EnemyShip extends Ship {
     @Override
     public boolean destroyed() {
         System.out.println("You have destroyed this ship!");
+
         return false;
     }
 
