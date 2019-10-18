@@ -9,10 +9,12 @@ public class Sector {
     List<EnemyShip> enemyShips = new ArrayList<>();
 
     public Sector() {
+        fillArray();
         setEnterpriseLocation();
+        placeShips();
     }
 
-    public void fillArray() {
+    private void fillArray() {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length ; j++) {
                 grid[i][j] = ".";
@@ -31,7 +33,7 @@ public class Sector {
         System.out.println();
     }
 
-    public void placeShips() {
+    private void placeShips() {
         int shipIndex = 0;
         for (int i = 0; i < 5; i++) {
             enemyShips.add(new EnemyShip(i + 1));

@@ -28,9 +28,6 @@ public class Game {
             String userChoice = scanner.nextLine();
             if (userChoice.equalsIgnoreCase("start")) {
                 System.out.println("Beginning Game!");
-                sector.fillArray();
-
-                sector.placeShips();
                 sector.displaySector(); // need to move to game class
                 System.out.println();
                 useCommands(scanner);
