@@ -14,6 +14,7 @@ public class Game {
         this.sector = new Sector();
     }
 
+    //n
     public void intro() {
         System.out.println("                                       WELCOME TO");
         starTrekFont();
