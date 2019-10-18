@@ -8,6 +8,7 @@ public abstract class Ship {
     private int x;
     private int y;
     private int health;
+    private String name;
 
     public Ship(int health) {
         this.health = health;

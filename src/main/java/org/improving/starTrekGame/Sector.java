@@ -30,7 +30,7 @@ public class Sector {
     public void placeShips() {
         int shipIndex = 0;
         for (int i = 0; i < 5; i++) {
-            enemyShips.add(new EnemyShip());
+            enemyShips.add(new EnemyShip(i + 1));
         }
 
         for(EnemyShip e: enemyShips) {
