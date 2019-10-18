@@ -82,15 +82,19 @@ public class Sector {
             grid[oldX][oldY] = ".";
             if(enterpriseShip.getxCord() > member.getxCord()){
                 grid[oldX+1][oldY] = member.getMarker();
+                member.setLocation(oldX+1, oldY);
             }
             else if(enterpriseShip.getxCord() < member.getxCord()){
                 grid[oldX-1][oldY] = member.getMarker();
+                member.setLocation(oldX-1, oldY);
             }
             else if (enterpriseShip.getyCord() > member.getyCord()) {
                 grid[oldX][oldY + 1] = member.getMarker();
+                member.setLocation(oldX, oldY+1);
             }
             else if(enterpriseShip.getyCord() < member.getyCord()){
                 grid[oldX][oldY - 1] = member.getMarker();
+                member.setLocation(oldX, oldY-1);
             }
         }
     }

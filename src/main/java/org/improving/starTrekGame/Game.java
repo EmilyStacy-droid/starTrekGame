@@ -17,13 +17,13 @@ public class Game {
     public void intro() {
         System.out.println("                                       WELCOME TO");
         starTrekFont();
-        System.out.println( "                               | START | HELP | EXIT |");
+        System.out.println("                               | START | HELP | EXIT |");
         Scanner scanner = new Scanner(System.in);
         startMenu(scanner);
     }
 
     private void startMenu(Scanner scanner) {
-        while(true) {
+        while (true) {
             System.out.print(">> ");
             String userChoice = scanner.nextLine();
             if (userChoice.equalsIgnoreCase("start")) {
@@ -43,50 +43,56 @@ public class Game {
     }
 
 
-
     private void useCommands(Scanner scanner) {
         boolean loop = true;
         while (loop) {
-            System.out.print(">> ");
-            String userChoice = scanner.nextLine().trim();
-            String[] parsed = userChoice.split(" ");
-            String command = parsed[0];
-            if (command.equalsIgnoreCase("attack")) {
-                int target = Integer.parseInt(parsed[1]);
-                for (int i = 0; i < sector.getEnemyShips().size(); i++) {
-                    if (target == sector.getEnemyShips().get(i).getId()) {
-                        target = i;
+            try {
+                System.out.print(">> ");
+                String userChoice = scanner.nextLine().trim();
+                String[] parsed = userChoice.split(" ");
+                String command = parsed[0];
+                if (command.equalsIgnoreCase("attack")) {
+                    int target = Integer.parseInt(parsed[1]);
+                    for (int i = 0; i < sector.getEnemyShips().size(); i++) {
+                        if (target == sector.getEnemyShips().get(i).getId()) {
+                            target = i;
+                        }
                     }
-                }
-                AttackCommand attackCommand = new AttackCommand(sector.getEnterpriseShip(), sector.getEnemyShips().get(target), 50, sector); //TODO Change later.
-                attackCommand.execute();
-                for (int i = 0; i < sector.getEnemyShips().size(); i++) {
-                    if (sector.getEnemyShips().get(i).isInRange(sector.getEnterpriseShip())) {
-                        attackCommand = new AttackCommand(sector.getEnemyShips().get(i), sector.getEnterpriseShip(), 25, sector);
-                        if (attackCommand.execute())
-                            break;
+                    AttackCommand attackCommand = new AttackCommand(sector.getEnterpriseShip(), sector.getEnemyShips().get(target), 50, sector); //TODO Change later.
+                    attackCommand.execute();
+                    for (int i = 0; i < sector.getEnemyShips().size(); i++) {
+                        if (sector.getEnemyShips().get(i).isInRange(sector.getEnterpriseShip())) {
+                            attackCommand = new AttackCommand(sector.getEnemyShips().get(i), sector.getEnterpriseShip(), 25, sector);
+                            if (attackCommand.execute())
+                                break;
+                        }
                     }
+                    sector.moveEnemyShip();
+                } else if (command.equalsIgnoreCase("move")) {
+                    MoveCommand moveCommand = new MoveCommand(sector, sector.getEnterpriseShip());
+                    moveCommand.execute(parsed[1], Integer.parseInt(parsed[2]));
+                    sector.moveEnemyShip();
+                } else if (command.equalsIgnoreCase("exit")) {
+                    return;
+                } else if (command.equalsIgnoreCase("help")) {
+                    showGameHelpCommands();
                 }
-                sector.moveEnemyShip();
-            } else if (command.equalsIgnoreCase("move")) {
-                MoveCommand moveCommand = new MoveCommand(sector, sector.getEnterpriseShip());
-                moveCommand.execute(parsed[1], Integer.parseInt(parsed[2]));
-            } else if (command.equalsIgnoreCase("exit")) {
-                return;
-            } else if (command.equalsIgnoreCase("help")) {
-                showGameHelpCommands();
+                sector.displaySector();
+                if (sector.allEnemiesDestroyed()) {
+                    System.out.println(
+                            "                              __ \n" +
+                                    " __ __                  _    |  |\n" +
+                                    "|  |  |___ _ _    _ _ _|_|___|  |\n" +
+                                    "|_   _| . | | |  | | | | |   |__|\n" +
+                                    "  |_| |___|___|  |_____|_|_|_|__|\n" +
+                                    "                                 ");
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Sorry, I didn't understand that!");
             }
-            sector.displaySector();
-            if (sector.allEnemiesDestroyed()){
-                System.out.println(
-                        "                              __ \n" +
-                                " __ __                  _    |  |\n" +
-                                "|  |  |___ _ _    _ _ _|_|___|  |\n" +
-                                "|_   _| . | | |  | | | | |   |__|\n" +
-                                "  |_| |___|___|  |_____|_|_|_|__|\n" +
-                                "                                 ");
-                break;
-            }}
+            System.out.println("The Enterprise has " + sector.getEnterpriseShip().getHealth() + " health left.");
+        }
     }
 
     private void showGameHelpCommands() {
@@ -116,8 +122,6 @@ public class Game {
         System.out.println("   \\|_________|      ");
 
     }
-
-
 
 
 }
