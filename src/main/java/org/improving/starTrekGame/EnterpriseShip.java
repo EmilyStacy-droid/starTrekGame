@@ -1,16 +1,12 @@
 package org.improving.starTrekGame;
 
 public class EnterpriseShip extends Ship {
-    private int x;
-    private int y;
-    private Sector sector;
 
-    public void setLocation(int x, int y) {
-        this.x = x;
-        this.y = y;
+
+    @Override
+    public boolean destroyed() {
+        System.out.println("You unfortunately have lost the game!");
+        return true;
 
     }
-
-
-
 }

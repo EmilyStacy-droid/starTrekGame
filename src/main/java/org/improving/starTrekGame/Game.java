@@ -52,10 +52,10 @@ public class Game {
             String command = parsed[0];
             if (command.equalsIgnoreCase("attack")) {
                 int target = Integer.parseInt(parsed[1]);
-                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target), 50); //TODO Change later.
+                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target), 50, sector); //TODO Change later.
                 attackCommand.execute();
                 for (int i = 0; i < sector.getEnemyShips().size(); i++) {
-                    attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25);
+                    attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25, sector);
                     attackCommand.execute();
                 }
             } else if (command.equalsIgnoreCase("move")) {
@@ -66,6 +66,7 @@ public class Game {
             } else if (command.equalsIgnoreCase("help")) {
                 showGameHelpCommands();
             }
+            sector.displaySector();
         }
     }
 
