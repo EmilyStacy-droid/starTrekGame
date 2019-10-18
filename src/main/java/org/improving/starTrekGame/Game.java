@@ -13,8 +13,9 @@ public class Game {
     }
 
     public void intro() {
-        System.out.println("Welcome to the Star Trek Game!");
-        System.out.println( "| START | HELP | EXIT |");
+        System.out.println("                                       WELCOME TO");
+        starTrekFont();
+        System.out.println( "                               | START | HELP | EXIT |");
         Scanner scanner = new Scanner(System.in);
         promptUser(scanner);
     }
@@ -26,7 +27,8 @@ public class Game {
             if (userChoice.equalsIgnoreCase("start")) {
                 System.out.println("Beginning Game!");
                 String[][] middleSector = sector.fillArray(new String[10][10]);
-              //  sector.displaySector(middleSector); // need to move to game class
+                sector.displaySector(middleSector); // need to move to game class
+                System.out.println(); // subject to take out
                 useCommands(scanner);
                 break;
             } else if (userChoice.equalsIgnoreCase("help")) {
@@ -70,6 +72,18 @@ public class Game {
         System.out.println("HELP -- print this help text");
         System.out.println("EXIT -- exit the game :(");
         System.out.println();
+    }
+
+    private void starTrekFont() {
+        System.out.println(" ________  _________  ________  ________          _________  ________  _______   ___  __       ");
+        System.out.println("|\\   ____\\|\\___   ___\\\\   __  \\|\\   __  \\        |\\___   ___\\\\   __  \\|\\  ___ \\ |\\  \\|\\  \\     ");
+        System.out.println("\\ \\  \\___|\\|___ \\  \\_\\ \\  \\|\\  \\ \\  \\|\\  \\       \\|___ \\  \\_\\ \\  \\|\\  \\ \\   __/|\\ \\  \\/  /|_  ");
+        System.out.println(" \\ \\_____  \\   \\ \\  \\ \\ \\   __  \\ \\   _  _\\           \\ \\  \\ \\ \\   _  _\\ \\  \\_|/_\\ \\   ___  \\  ");
+        System.out.println("  \\|____|\\  \\   \\ \\  \\ \\ \\  \\ \\  \\ \\  \\\\  \\|           \\ \\  \\ \\ \\  \\\\  \\\\ \\  \\_|\\ \\ \\  \\\\ \\  \\ ");
+        System.out.println("    ____\\_\\  \\   \\ \\__\\ \\ \\__\\ \\__\\ \\__\\\\ _\\            \\ \\__\\ \\ \\__\\\\ _\\\\ \\_______\\ \\__\\\\ \\__\\");
+        System.out.println("  |\\_________\\   \\|__|  \\|__|\\|__|\\|__|\\|__|            \\|__|  \\|__|\\|__|\\|_______|\\|__| \\|__|");
+        System.out.println("   \\|_________|      ");
+
     }
 
 
