@@ -41,16 +41,7 @@ public class Game {
             } else if (userChoice.equalsIgnoreCase("exit")) {
                 break;
             }
-            if (sector.allEnemiesDestroyed()){
-                System.out.println(
-                        "                              __ \n" +
-                        " __ __                  _    |  |\n" +
-                        "|  |  |___ _ _    _ _ _|_|___|  |\n" +
-                        "|_   _| . | | |  | | | | |   |__|\n" +
-                        "  |_| |___|___|  |_____|_|_|_|__|\n" +
-                        "                                 ");
-                break;
-            }
+
         }
     }
 
@@ -69,7 +60,8 @@ public class Game {
                 attackCommand.execute();
                 for (int i = 0; i < sector.getEnemyShips().size(); i++) {
                     attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25, sector);
-                    attackCommand.execute();
+                    if (attackCommand.execute())
+                        break;
                 }
             } else if (command.equalsIgnoreCase("move")) {
                 MoveCommand moveCommand = new MoveCommand();
@@ -80,7 +72,16 @@ public class Game {
                 showGameHelpCommands();
             }
             sector.displaySector();
-        }
+            if (sector.allEnemiesDestroyed()){
+                System.out.println(
+                        "                              __ \n" +
+                                " __ __                  _    |  |\n" +
+                                "|  |  |___ _ _    _ _ _|_|___|  |\n" +
+                                "|_   _| . | | |  | | | | |   |__|\n" +
+                                "  |_| |___|___|  |_____|_|_|_|__|\n" +
+                                "                                 ");
+                break;
+            }}
     }
 
     private void showGameHelpCommands() {
