@@ -1,7 +1,7 @@
 package org.improving.starTrekGame;
 
 import java.util.Random;
-
+//hi
 public class Sector {
     private String[][] sector = new String[10][10];
     Random random = new Random();
