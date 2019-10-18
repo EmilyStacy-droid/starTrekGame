@@ -17,9 +17,9 @@ public class AttackCommand {
     public boolean execute() {
         target.takeDamage(damageAmount);
         if (target.getHealth() <= 0) {
+            sector.removeDeadShip(target.getxCord(), target.getyCord());
             return target.destroyed();
         }
-        sector.removeDeadShip(target.getxCord(), target.getyCord());
         return false;
     }
 

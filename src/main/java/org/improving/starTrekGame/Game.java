@@ -56,7 +56,7 @@ public class Game {
             String command = parsed[0];
             if (command.equalsIgnoreCase("attack")) {
                 int target = Integer.parseInt(parsed[1]);
-                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target), 50, sector); //TODO Change later.
+                AttackCommand attackCommand = new AttackCommand(sector.getEnemyShips().get(target - 1), 50, sector); //TODO Change later.
                 attackCommand.execute();
                 for (int i = 0; i < sector.getEnemyShips().size(); i++) {
                     attackCommand = new AttackCommand(sector.getEnterpriseShip(), 25, sector);

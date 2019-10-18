@@ -3,10 +3,9 @@ package org.improving.starTrekGame;
 import java.util.Random;
 
 public class EnemyShip extends Ship {
-    Random random = new Random();
 
     public EnemyShip() {
-        setLocation(random.nextInt(10), random.nextInt(10));
+        super(100);
     }
 
     @Override
