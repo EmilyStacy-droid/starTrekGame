@@ -72,6 +72,7 @@ public class Sector {
         int oldY = ship.getyCord();
         grid[oldX][oldY] = ".";
         ship.setLocation(newX, newY);
+
         grid[newX][newY] = ship.getMarker();
     }
 
